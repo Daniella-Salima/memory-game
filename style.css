@@ -1,0 +1,113 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* PAGE CENTERING */
+body {
+  height: 100vh;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN CARD */
+.game-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: fit-content;
+  max-width: 95vw;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* TITLE */
+h1 {
+  margin-bottom: 15px;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+select,
+button {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* GAME BOARD */
+.game-board {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: center;
+
+  /* magic line */
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+
+  width: 100%;
+  max-width: 420px; /* controls how wide the board can get */
+  margin: 0 auto;
+}
+
+/* CARD */
+.card {
+  width: var(--card-size);
+  height: var(--card-size);
+  background: linear-gradient(145deg, #1e90ff, #1877e6);
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(var(--card-size) / 2.2);
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+  transform: rotateY(0deg);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* FLIPPED CARD */
+.card.flipped {
+  background: linear-gradient(145deg, #4caf50, #43a047);
+  transform: rotateY(0deg);
+}
+
+/* MESSAGE */
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+@keyframes winPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+  animation: winPop 0.6s ease-in-out;
+}
